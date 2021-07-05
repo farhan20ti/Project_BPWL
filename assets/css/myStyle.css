@@ -1,0 +1,28 @@
+.app-bar{
+    background-color: #98694D;
+}
+
+.bg-app{
+    background-color: #f7f7f7;
+}
+
+.bg-content{
+    background-color: #fff;
+}
+
+.promo-card{
+    height: 12.5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    background-color: #E9DBC6;
+}
+
+.promo-card img{
+    width: 360px;
+}
+
+.promo-card button{
+    width: 5rem;
+    background-color: #553D3A;
+    color: white;
+}
