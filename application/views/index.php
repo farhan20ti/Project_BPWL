@@ -2,24 +2,26 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view('partials/header.php') ?>
+    <?php require('partials/header.php') ?>
 </head>
 
 <body>
     <!-- AppBar-->
-    <?php $this->load->view('partials/appBar.php') ?>
+    <?php require('partials/appBar.php') ?>
     <!-- End of AppBar-->
 
     <!-- Body Content-->
-    <?php $this->load->view('pages/beranda.php') ?>
+    <div id="body-content">
+
+    </div>
     <!-- End of Body Content-->
 
     <!-- Bottom Navigation -->
-    <?php $this->load->view('partials/nav.php') ?>
+    <?php require('partials/nav.php') ?>
     <!-- End of Bottom Navigation -->
 
     <!-- Footer -->
-    <?php $this->load->view('partials/footer.php') ?>
+    <?php require('partials/footer.php') ?>
     <!-- End of Footer -->
 </body>
 

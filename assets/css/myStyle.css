@@ -1,4 +1,8 @@
-.app-bar{
+html{
+    background-color: #f7f7f7;
+}
+
+.bg-main{
     background-color: #98694D;
 }
 
@@ -25,4 +29,136 @@
     width: 5rem;
     background-color: #553D3A;
     color: white;
+}
+
+.profile-img{
+    border-radius: 50%;
+    width: 9rem;
+    border: 8px solid white;
+    margin-top: -5rem !important;
+}
+
+.profile-header{
+    height: 12.5rem;
+}
+
+.profile-body{
+    border-radius: 2rem 2rem 0 0;
+    margin-top: -2rem !important;
+    margin-bottom: 3rem;
+}
+
+.profile-body input{
+    border-radius: 1rem;
+    height: 3rem;
+}
+
+.profile-body button{
+    border-radius: 1rem;
+    height: 3rem;
+    width: 8rem;
+    background-color: #553D3A;
+    color: white;
+}
+
+.login-body{
+    height: 40rem !important;
+}
+
+.register-body{
+    height: 47rem;
+}
+
+.register-body input{
+    border-radius: 1rem;
+    height: 3rem;
+}
+
+.login-body input{
+    border-radius: 1rem;
+    height: 3rem;
+}
+
+.login-body .login-btn{
+    border-radius: 1rem;
+    height: 3rem;
+    width: 10rem;
+    border: #553D3A solid 2px;
+}
+
+.register-body .btn-register{
+    border-radius: 1rem;
+    height: 3rem;
+    width: 10rem;
+    color: white;
+    background-color: #553D3A;
+}
+
+.login-body .facebook{
+    background-color: #395693;
+    border-radius: 1rem 0 0 1rem;
+    width: 8rem;
+}
+
+.login-body .google{
+    background-color: #E44136;
+    border-radius: 0 1rem 1rem 0;
+    width: 8rem;
+}
+
+.shop-body{
+    height: 45rem;
+}
+
+.shop-body .shop-image{
+    height: 12.5rem;
+    overflow: hidden;
+}
+
+.shop-image img{
+    background-size: cover;
+    height: 13.5rem;
+}
+
+.shop-title{
+    margin-top: -1.6rem !important;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.shop-title button{
+    border-radius: 1rem;
+    background-color: #E8C48E;
+}
+
+.shop-title .text-service{
+    font-size: 11pt;
+}
+
+.shop-beli p{
+    font-size: 14pt;
+}
+
+.shop-beli .btn-beli{
+    color: white;
+    background-color: #553D3A;
+    width: 7rem;
+}
+
+.order-header{
+    background-color: #E9DBC6;
+    height: 14rem;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.order-header p{
+    font-size: 12pt;
+}
+
+.order-detail img{
+    width: 100%;
+    overflow: hidden;
+}
+
+.order-text p{
+    font-size: 8pt;
 }

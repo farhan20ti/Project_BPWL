@@ -7,7 +7,7 @@
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Bootstrap icons-->
 <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="<?= base_url() ?>assets/css/fontawesome.css" rel="stylesheet" />
+<link href="<?= base_url() ?>assets/css/fontawesome.min.css" rel="stylesheet" />
 <link href="<?= base_url() ?>assets/css/brands.css" rel="stylesheet" />
 <link href="<?= base_url() ?>assets/css/solid.css" rel="stylesheet" />
 <link href="<?= base_url() ?>assets/css/myStyle.css" rel="stylesheet" />

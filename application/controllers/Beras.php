@@ -19,11 +19,32 @@ class Beras extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('url');
+    }
+
     public function index()
     {
         $data = [
-            'title' => 'Beranda'
+            'title' => 'Beranda',
+            'appBar' => 'Berasku'
         ];
         $this->load->view('index', $data);
+    }
+
+    public function profil()
+    {
+        $data = [
+            'title' => 'Profil',
+            'appBar' => 'Profil'
+        ];
+        $this->load->view('pages/profile.php', $data);
+    }
+
+    public function header()
+    {
+        $this->load->view('partials/header.php');
     }
 }

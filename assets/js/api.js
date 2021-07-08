@@ -1,16 +1,17 @@
 const home_api = "http://localhost/berasku/index.php/api/home";
 
 var fetchApi = function(url){
-    return fetch(url);
+	return fetch(url)
 }
 
-function new_project(){
-    fetchApi(home_api)
-        .then(res => res.json())
-        .then(function(data){
-            console.log(data)
-            var projects = ''
-                projects += `
+function new_projects(){
+	fetchApi(home_api)
+		.then(res => res.json())
+		.then(function(data){
+		console.log(data)
+		var projects = ''
+			projects += 
+			`
                 <div class="row d-flex justify-content-center mx-0 bg-app">
                 <div class="col-lg-4 px-0">
                     <header class="bg-withe py-2 header-beranda bg-content">
@@ -106,6 +107,6 @@ function new_project(){
                 </div>
             </div>
                 `
-            document.getElementById('')
+            document.getElementById('body-content').innerHTML = projects
         })
 }
