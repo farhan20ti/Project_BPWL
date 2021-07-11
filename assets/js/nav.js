@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var page = window.location.hash.substr(1);
     if (page == "") page = "beranda";
     loadPage(page);
+    
 
     function loadPage(page){
         var xhttp = new XMLHttpRequest();
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 if (this.status == 200){
                     goneNav(page);
                     removeAppBar(page);
+                    if(page == "belanja") goToShop();
                     content.innerHTML = xhttp.responseText;
                 } else if (this.status == 404){
                     content.innerHTML = "<p>Halaman tidak ditemukan</p>";
@@ -57,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function removeAppBar(page){
         if(page == "beranda" || page == "belanja" || page == "order" || page =="login"
-    || page == "profile"){
+            || page == "profile"){
             document.querySelector("#appbar").style.display = "none";
         } else{
             document.querySelector("#appbar").style.display = "block";
@@ -65,10 +67,19 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function goneNav(page){
-        if(page == "login"){
+        if(page == "login" || page == "shop" || page == "step1" || page == "step2" || page == "detail"){
             document.querySelector("#navbar").style.display = "none";
         } else {
             document.querySelector("#navbar").style.display = "block"
         }
+    }
+
+    function goToShop(){
+        document.querySelectorAll(".item-shop a").forEach(function(elm){
+            elm.addEventListener("click", function(event){
+                page = elm.getAttribute("href").substr(1);
+                loadPage(page);
+            })
+        });
     }
 });

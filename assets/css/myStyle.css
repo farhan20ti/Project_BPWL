@@ -117,7 +117,7 @@ html{
 
 .shop-image img{
     background-size: cover;
-    height: 13.5rem;
+    width: 100%;
 }
 
 .shop-title{
@@ -161,4 +161,8 @@ html{
 
 .order-text p{
     font-size: 8pt;
+}
+
+.body-step1{
+    height: 30rem;
 }

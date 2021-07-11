@@ -1,8 +1,8 @@
 <div class="row d-flex justify-content-center mx-0 shop-body bg-app">
-    <div class="col-md-4 col-12 px-0">
+    <div class="col-lg-4 px-0">
         <div class="row mx-0">
             <div class="w-100 bg-danger shop-image p-0">
-                <img src="<?= base_url('assets/img/beras1.jpg') ?>" alt="">
+                <img src="assets/img/beras1.jpg" alt="">
             </div>
             <div class="shop-title bg-content p-4 pb-2">
                 <h5 class="mb-0">Beras Anak Daro</h5>

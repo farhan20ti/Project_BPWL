@@ -10,8 +10,8 @@
                         <button type="button" class="btn btn-outline-secondary mx-1">Biasa</button>
                     </div>
                     <div class="row gx-4 row-cols-2 row-cols-md-2 justify-content-between">
-                        <a href="#shop" class="text-dark text-decoration-none">
-                            <div class="col mb-4">
+                        <div class="col-mb-4 item-shop mb-2">
+                            <a href="#shop" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />
@@ -25,10 +25,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#shop" class="text-dark text-decoration-none">
-                            <div class="col mb-4">
+                            </a>
+                        </div>
+                        <div class="col-mb-4 item-shop mb-2">
+                            <a href="#belanja" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />
@@ -42,10 +42,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#shop" class="text-dark text-decoration-none">
-                            <div class="col mb-4">
+                            </a>
+                        </div>
+                        <div class="col-mb-4 item-shop mb-2">
+                            <a href="#belanja" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />
@@ -59,10 +59,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#shop" class="text-dark text-decoration-none">
-                            <div class="col mb-4">
+                            </a>
+                        </div>
+                        <div class="col-mb-4 item-shop mb-2">
+                            <a href="#belanja" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />
@@ -76,25 +76,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#shop" class="text-dark text-decoration-none">
-                            <div class="col mb-4">
-                                <div class="card h-100">
-                                    <!-- Product image-->
-                                    <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />
-                                    <!-- Product details-->
-                                    <div class="card-body p-2">
-                                        <div class="text-left">
-                                            <!-- Product name-->
-                                            <h5 class="fw-bolder">Topi Koki</h5>
-                                            <!-- Product price-->
-                                            <p class="d-inline">Rp. 108.000</p><small>/10Kg</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
