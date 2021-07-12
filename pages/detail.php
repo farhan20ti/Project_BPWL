@@ -2,7 +2,7 @@
     <div class="col-lg-4 bg-content">
         <div class="p-4">
             <h3>Detail Pembelian</h3>
-            <div class="mb-3">
+            <div class="mb-3 border p-3 rounded">
                 <h6>Pembeli</h6>
                 <table>
                     <tr>
@@ -15,7 +15,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 border p-3 rounded">
                 <h6>Barang:</h6>
                 <table>
                     <tr>
@@ -32,7 +32,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 border p-3 rounded">
                 <h6>Pembayaran: Kredit(Transfer/Tunai)</h6>
                 <table>
                     <tr>
@@ -49,18 +49,18 @@
                     </tr>
                 </table>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 border p-3 rounded">
                 <h6>Pembayaran: Cash(Transfer/Tunai)</h6>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 border p-3 rounded">
                 <h6>Barang di kirim ke</h6>
                 <p>Jalan Paus</p>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 border p-3 rounded">
                 <h6>Ambil Barang di</h6>
                 <p>Jalan Nangka (Kantor Pusat Berasku)</p>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 border p-3 rounded">
                 <h6>Total Pembayaran</h6>
                 <table>
                     <tr>
@@ -78,7 +78,11 @@
                 </table>
             </div>
             <div class="mt-2 d-flex flex-row-reverse">
-                <button class="btn btn-success">Beli</button>
+                <div class="d-flex flex-row-reverse p-4 px-0" id="tombol-next">
+                    <a href="#order">
+                        <button class="btn btn-success" style="width: 8rem;">Beli</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

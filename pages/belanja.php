@@ -10,7 +10,7 @@
                         <button type="button" class="btn btn-outline-secondary mx-1">Biasa</button>
                     </div>
                     <div class="row gx-4 row-cols-2 row-cols-md-2 justify-content-between">
-                        <div class="col-mb-4 item-shop mb-2">
+                        <div class="col-mb-4 item-shop mb-4">
                             <a href="#shop" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
@@ -27,8 +27,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-mb-4 item-shop mb-2">
-                            <a href="#belanja" class="text-dark text-decoration-none">
+                        <div class="col-mb-4 item-shop mb-4">
+                            <a href="#shop" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />
@@ -44,8 +44,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-mb-4 item-shop mb-2">
-                            <a href="#belanja" class="text-dark text-decoration-none">
+                        <div class="col-mb-4 item-shop mb-4">
+                            <a href="#shop" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />
@@ -61,8 +61,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-mb-4 item-shop mb-2">
-                            <a href="#belanja" class="text-dark text-decoration-none">
+                        <div class="col-mb-4 item-shop mb-4">
+                            <a href="#shop" class="text-dark text-decoration-none">
                                 <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="../berasku/assets/img/beras1.jpg" alt="..." />

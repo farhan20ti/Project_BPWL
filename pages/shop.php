@@ -54,8 +54,10 @@
                             <h2>+</h2>
                         </button>
                     </div>
-                    <div class="d-flex px-2">
-                        <button class="btn btn-beli">Beli</button>
+                    <div class="d-flex px-2" id="tombol-beli">
+                        <a href="#step1">
+                            <button class="btn btn-beli">Beli</button>
+                        </a>
                     </div>
                 </div>
             </div>

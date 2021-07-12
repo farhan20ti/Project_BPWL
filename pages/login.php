@@ -24,8 +24,14 @@
             </div>
         </div>
         <div class="row mx-0 px-4 mb-4 mt-5">
-            <button class="btn mx-auto login-btn">Login</button>
-            <a href="" class="text-center mt-3">Register</a>
+            <div id="btn-login" class="d-flex justify-content-center">
+                <a href="#beranda">
+                    <button class="btn mx-auto login-btn">Login</button>
+                </a>
+            </div>
+            <div id="btn-register" class=" d-flex justify-content-center">
+                <a href="#register" class="text-center mt-3">Register</a>
+            </div>
             <div class="text-center mt-3">
                 <button class="btn px-0">
                     <i class="fab fa-facebook-f px-4 facebook py-2"></i>

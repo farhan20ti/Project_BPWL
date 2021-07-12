@@ -41,8 +41,8 @@
                         <p class="mb-0 px-0">No. Handphone</p>
                         <h6 class="px-0">0823-8676-9220</h6>
                     </div>
-                    <div class="row mb-4 pt-5">
-                        <a href="" class="text-center">Keluar dari akun</a>
+                    <div class="row mb-4 pt-5" id="logout">
+                        <a href="#login" class="text-center">Keluar dari akun</a>
                     </div>
                 </div>
             </div>
