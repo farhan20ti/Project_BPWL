@@ -5,7 +5,7 @@
                 <div class="text-left text-dark">
                     <h4>Promo</h4>
                     <div class="row d-flex justify-content-center promo-card">
-                        <div class="col-7 py-4 px-md-4">
+                        <div class="col-7 py-4 px-md-4 item-shop">
                             <p>Beras Anak daro harganya sedang turun lho. Buruan beli!</p>
                             <h5 class="d-inline">Rp. 115.000</h5><small>/10Kg</small>
                             <a href="#shop" class="text-decoration-none">

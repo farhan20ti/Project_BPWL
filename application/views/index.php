@@ -7,7 +7,7 @@
 
 <body>
     <!-- AppBar-->
-    <?php require('partials/appBar.php') ?>
+    <!-- <?php require('partials/appBar.php') ?> -->
     <!-- End of AppBar-->
 
     <!-- Body Content-->

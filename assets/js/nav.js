@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function(){
     var page = window.location.hash.substr(1);
     if (page == "") page = "beranda";
     loadPage(page);
-    var pageToBack = "";
-
+    loadAdminPage(page);
+    
     function loadPage(page){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
@@ -14,11 +14,10 @@ document.addEventListener("DOMContentLoaded", function(){
                 if (this.status == 200){
                     content.innerHTML = xhttp.responseText;
                     goneNav(page);
-                    removeAppBar(page);
                     goToShop(page);
-                    backButton(page);
                     toStep1(page);
                     btnSelanjutnya(page);
+                    kembali(page);
                     showMore(page);
                     logout(page);
                     register(page);
@@ -33,14 +32,6 @@ document.addEventListener("DOMContentLoaded", function(){
         };
         xhttp.open("GET", "../berasku/pages/" + page +".php", true);
         xhttp.send();
-    }
-
-    function backButton(page){
-        document.querySelectorAll("#btn-back").forEach(function(elm) {
-            elm.addEventListener("click", function(event) {
-                loadPage(getPageToBack(page));
-            });
-        });
     }
 
     function loadNav(){
@@ -126,9 +117,14 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
-    function getPageToBack(page){
-        if(page == "shop"){
-            return pageToBack = "belanja";
+    function kembali(page){
+        if(page == "shop" || page == "step1" || page == "step2" || page == "detail"){
+            document.querySelectorAll("#tombolKembali a").forEach(function(elm) {
+                elm.addEventListener("click", function(event) {
+                    page = elm.getAttribute("href").substr(1);
+                    loadPage(page);
+                });
+            });
         }
     }
 
