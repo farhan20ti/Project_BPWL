@@ -54,4 +54,54 @@ class Admin extends CI_Controller
     {
         $this->load->view('admin/register');
     }
+
+    public function tambahBeras()
+    {
+        $this->load->view('admin/tambahBeras');
+    }
+
+    public function editBeras()
+    {
+        $this->load->view('admin/editDataBeras.php');
+    }
+
+    public function tambahUser()
+    {
+        $this->load->view('admin/tambahUser.php');
+    }
+
+    public function editUser()
+    {
+        $this->load->view('admin/editDataUser.php');
+    }
+
+    public function tambahAppointment()
+    {
+        $this->load->view('admin/tambahAppoinment.php');
+    }
+
+    public function editAppointment()
+    {
+        $this->load->view('admin/editDataAppoinment.php');
+    }
+
+    public function tambahKurir()
+    {
+        $this->load->view('admin/tambahKurir.php');
+    }
+
+    public function editKurir()
+    {
+        $this->load->view('admin/editDataKurir.php');
+    }
+
+    public function tambahDikirim()
+    {
+        $this->load->view('admin/tambahDikirim.php');
+    }
+
+    public function editDikirim()
+    {
+        $this->load->view('admin/editDataDikirim.php');
+    }
 }

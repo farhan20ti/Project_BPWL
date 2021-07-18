@@ -136,6 +136,9 @@
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Data Beras
+                            <a href="<?= site_url('admin/tambahBeras') ?>">
+                                <button class="btn btn-success">Tambah data</button>
+                            </a>
                         </div>
                         <div class="card-body">
                             <table class="table">
@@ -146,6 +149,7 @@
                                         <th>Asal Beras</th>
                                         <th>Type Beras</th>
                                         <th>Harga Beras</th>
+                                        <th>Gambar Beras</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -157,8 +161,15 @@
                                         <td>Biasa</td>
                                         <td>Rp. 115.000</td>
                                         <td>
-                                            <button class="btn btn-warning">Edit</button>
-                                            <button class="btn btn-danger">Hapus</button>
+                                            <img src="https://via.placeholder.com/50" alt="beras">
+                                        </td>
+                                        <td>
+                                            <a href="<?= site_url('admin/editBeras') ?>">
+                                                <button class="btn btn-warning">Edit</button>
+                                            </a>
+                                            <a href="">
+                                                <button class="btn btn-danger">Hapus</button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -169,6 +180,9 @@
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Data User
+                            <a href="<?= site_url('admin/tambahUser') ?>">
+                                <button class="btn btn-success">Tambah data</button>
+                            </a>
                         </div>
                         <div class="card-body">
                             <table class="table">
@@ -178,6 +192,8 @@
                                         <th class="text-start">Nama User</th>
                                         <th>Alamat User</th>
                                         <th>Password User</th>
+                                        <th>Foto Profil User</th>
+                                        <th>Foto KTP User</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -188,8 +204,18 @@
                                         <td>Jalan Paus</td>
                                         <td>**********</td>
                                         <td>
-                                            <button class="btn btn-warning">Edit</button>
-                                            <button class="btn btn-danger">Hapus</button>
+                                            <img src="https://via.placeholder.com/50" alt="beras">
+                                        </td>
+                                        <td>
+                                            <img src="https://via.placeholder.com/50" alt="beras">
+                                        </td>
+                                        <td>
+                                            <a href="<?= site_url('admin/editUser') ?>">
+                                                <button class="btn btn-warning">Edit</button>
+                                            </a>
+                                            <a href="">
+                                                <button class="btn btn-danger">Hapus</button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -200,6 +226,9 @@
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Data Appointment
+                            <a href="<?= site_url('admin/tambahAppointment') ?>">
+                                <button class="btn btn-success">Tambah data</button>
+                            </a>
                         </div>
                         <div class="card-body">
                             <table class="table">
@@ -223,8 +252,12 @@
                                         <td>20Kg</td>
                                         <td>Rp. 230.000</td>
                                         <td>
-                                            <button class="btn btn-warning">Edit</button>
-                                            <button class="btn btn-danger">Hapus</button>
+                                            <a href="<?= site_url('admin/editAppointment') ?>">
+                                                <button class="btn btn-warning">Edit</button>
+                                            </a>
+                                            <a href="">
+                                                <button class="btn btn-danger">Hapus</button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -235,6 +268,9 @@
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Data Kurir
+                            <a href="<?= site_url('admin/tambahKurir') ?>">
+                                <button class="btn btn-success">Tambah data</button>
+                            </a>
                         </div>
                         <div class="card-body">
                             <table class="table">
@@ -252,8 +288,12 @@
                                         <td>Suyanto</td>
                                         <td>0821 8662 9880</td>
                                         <td>
-                                            <button class="btn btn-warning">Edit</button>
-                                            <button class="btn btn-danger">Hapus</button>
+                                            <a href="<?= site_url('admin/editKurir') ?>">
+                                                <button class="btn btn-warning">Edit</button>
+                                            </a>
+                                            <a href="">
+                                                <button class="btn btn-danger">Hapus</button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -264,6 +304,9 @@
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Tabel Dikirim
+                            <a href="<?= site_url('admin/tambahDikirim') ?>">
+                                <button class="btn btn-success">Tambah data</button>
+                            </a>
                         </div>
                         <div class="card-body">
                             <table class="table">
@@ -283,8 +326,12 @@
                                         <td>KR-001</td>
                                         <td>14 July 2021</td>
                                         <td>
-                                            <button class="btn btn-warning">Edit</button>
-                                            <button class="btn btn-danger">Hapus</button>
+                                            <a href="<?= site_url('admin/editDikirim') ?>">
+                                                <button class="btn btn-warning">Edit</button>
+                                            </a>
+                                            <a href="">
+                                                <button class="btn btn-danger">Hapus</button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
