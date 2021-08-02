@@ -30,11 +30,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= site_url('admin/logout') ?>">Logout</a></li>
                 </ul>
             </li>
@@ -63,7 +58,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Admin Berasku
+                    Admin  <?php echo $this->session->userdata("nama"); ?>
                 </div>
             </nav>
         </div>
@@ -98,35 +93,120 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Tambah Data Appoinment</h1>
+                    <h1 class="mt-4">Tambah Data Pembelian</h1>
                     <div class="row">
                         <div class="col-4">
-                            <form>
+                            <form action="<?php echo site_url('Admin/addPembelian')  ?>" method="POST">
                                 <div class="form-group mb-2">
                                     <label for="idtransaksi">ID Transaksi</label>
-                                    <input type="text" class="form-control" id="idtransaksi" placeholder="Masukkan id transaksi">
+                                    <input type="text" class="form-control" id="idtransaksi" placeholder="Masukkan id transaksi" name="idtransaksi">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="idberas">ID Beras</label>
-                                    <input type="text" class="form-control" id="idberas" placeholder="Masukkan id beras">
+                                    <select class="form-select" id="idberas" name="idberas">
+                                        <option selected disabled>Pilih ID Beras</option>
+                                      <?php foreach ($berasId as $key => $value) { ?>
+                                          <option value="<?php echo $value['id_beras'] ?>"><?php echo $value['id_beras'] ?></option>
+                                      <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="iduser">ID User</label>
-                                    <input type="text" class="form-control" id="iduser" placeholder="Masukkan id user">
+                                    <select class="form-select" id="iduser" name="iduser">
+                                         <option selected disabled>Pilih ID User</option>
+                                       <?php foreach ($userId as $key => $value) { ?>
+                                          <option value="<?php echo $value['id_user'] ?>"><?php echo $value['id_user'] ?></option>
+                                      <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="tglbeli">Tanggal Beli</label>
-                                    <input type="date" class="form-control" id="tglbeli">
+                                    <input type="date" class="form-control" id="tglbeli" name="tglbeli">
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label for="jmlbeli">Jumlah beli</label>
-                                    <input type="number" class="form-control" id="jmlbeli" placeholder="Masukkan jumlah beli">
+                                    <label for="jmlbeli">Jumlah beli (Kg)</label>
+                                    <input type="number" class="form-control" id="jmlbeli" placeholder="Masukkan jumlah beli" name="jmlbeli">
                                 </div>
-                                <div class="form-group mb-2">
+                                <div class="form-group mb-3">
                                     <label for="harga">Total Harga</label>
-                                    <input type="number" class="form-control" id="harga" placeholder="">
+                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan ID Beras dan Jumlah beli" name="harga" readonly>
                                 </div>
-                                <button type="submit" class="btn btn-primary mt-2">Simpan Data</button>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="metodepembayaran">Jenis Pembayaran</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="jenispembayaran" name="jenispembayaran">
+                                        <option selected disabled>Pilih...</option>
+                                        <option value="transfer">Transfer</option>
+                                        <option value="tunai">Tunai</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="norek">No. Rekening</label>
+                                    <input type="text" class="form-control" id="norek" placeholder="Masukkan no rekening" name="norek">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="metodepembayaran">Pembayaran</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="metodepembayaran" name="metodepembayaran">
+                                        <option selected disabled>Pilih...</option>
+                                        <option value="kredit">Kredit</option>
+                                        <option value="cash">Cash</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="setor1">Setor 1</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="setor1" name="setor1">
+                                        <option selected disabled>Pilih...</option>
+                                        <option value="sudah">Sudah</option>
+                                        <option value="belum">Belum</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="setor2">Setor 2</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="setor2" name="setor2">
+                                        <option selected disabled>Pilih...</option>
+                                        <option value="sudah">Sudah</option>
+                                        <option value="belum">Belum</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="setor3">Setor 3</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="setor3" name="setor3">
+                                        <option selected disabled>Pilih...</option>
+                                        <option value="sudah">Sudah</option>
+                                        <option value="belum">Belum</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="penerimaan">Metode Penerimaan</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="penerimaan" name="penerimaan">
+                                        <option selected disabled>Pilih...</option>
+                                        <option value="antar">Antar</option>
+                                        <option value="jemput">Jemput</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="status">Status</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="status" name="status">
+                                        <option selected>Pilih...</option>
+                                        <option value="selesai">Selesai</option>
+                                        <option value="pending">Pending</option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="" id="hargaGet" value="0">
+                                <button type="submit" class="btn btn-primary mt-2 mb-5">Simpan Data</button>
                             </form>
                         </div>
                     </div>
@@ -134,6 +214,60 @@
             </main>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function formatNumber(num) {
+          return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
+       $(document).ready(function () {
+        let harga;
+        $('#jenispembayaran').change(function(){
+            if ($('#jenispembayaran').val() == "transfer") {
+                $('#norek').attr("disabled", false);
+            } else {
+                $('#norek').attr("disabled", true);
+                $('#norek').val(null);
+            }
+        })
+        $('#metodepembayaran').change(function(){
+            if ($('#metodepembayaran').val() == "kredit") {
+                $('#setor1').attr("disabled", false);
+                $('#setor2').attr("disabled", false);
+                $('#setor3').attr("disabled", false);
+            } else {
+                $('#setor1').attr("disabled", true);
+                $('#setor2').attr("disabled", true);
+                $('#setor3').attr("disabled", true);
+                $('#setor1').val(null);
+                $('#setor2').val(null);
+                $('#setor3').val(null);
+            }
+        });
+          $('#idberas').change(function(){ 
+                let harga = null;
+                var idberas = $(this).val();
+                 $.ajax({
+                type: "POST",
+                url: "<?php echo site_url(); ?>" + "/Admin/getHargaBeras",
+                data:{idberas:idberas},
+                success: function(data) {
+                   $("#hargaGet").val(data);
+                }
+              });
+            }); 
+            $("#jmlbeli").keyup(function(){
+            var val = $(this).val();
+            $("#jmlbeli").val(val);
+            var harga = $("#hargaGet").val();
+            var hargaDivide = harga / 10;
+            var hargaRes = hargaDivide * val;
+            var hargaFormatted = formatNumber(hargaRes);
+             $("#harga").val(hargaFormatted);
+          });
+          $   
+         });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>assets/js/scriptsAdmin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

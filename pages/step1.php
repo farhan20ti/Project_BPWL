@@ -16,8 +16,8 @@
         <div class="p-4">
             <h5>Langkah 1</h5>
             <p style="font-weight: 500;">Pilih Metode Pembayaran</p>
-            <button class="btn btn-info">Kredit</button>
-            <button class="btn btn-warning">Cash</button>
+            <button class="btn btn-info" id="kredit">Kredit</button>
+            <button class="btn btn-warning" id="cash">Cash</button>
             <div id="pilihCashAtauKredit" class="mt-4">
                 <p style="font-weight: 500;">Jenis Pembayaran</p>
                 <form action="">
@@ -35,23 +35,11 @@
                     </div>
                 </form>
                 <div id="pilihTransfer" class="mt-4">
-                    <p style="font-weight: bolder;">Masukkan nomor rekening untuk pembayaran transfer</p>
+                    <p style="font-weight: bolder;">Nomor Rekening Penerima</p>
                     <form action="">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="norek" placeholder="">
                     </form>
                 </div>
-            </div>
-            <div id="aturWaktuSetorKredit" class="mt-4 d-none">
-                <p style="font-weight: 500;" class="mb-1">Pilih tanggal pembayaran kredit</p>
-                <p class="mb-0">Downpayment (DP): Rp. 25.000</p>
-                <form action="">
-                    <p class="mt-3 mb-1">Pembayaran pertama</p>
-                    <input type="date" name="" id="" placeholder="No Rekening" class="form-control">
-                    <p class="mt-3 mb-1">Pembayaran kedua</p>
-                    <input type="date" name="" id="" placeholder="No Rekening" class="form-control">
-                    <p class="mt-3 mb-1">Pembayaran ketiga</p>
-                    <input type="date" name="" id="" placeholder="No Rekening" class="form-control">
-                </form>
             </div>
         </div>
     </div>

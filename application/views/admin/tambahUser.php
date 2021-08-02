@@ -30,11 +30,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= site_url('admin/logout') ?>">Logout</a></li>
                 </ul>
             </li>
@@ -63,7 +58,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Admin Berasku
+                    Admin  <?php echo $this->session->userdata("nama"); ?>
                 </div>
             </nav>
         </div>
@@ -99,32 +94,44 @@
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Tambah Data User</h1>
-                    <div class="row">
+                    <div class="row pb-4">
                         <div class="col-4">
-                            <form>
+                            <form action="<?php echo site_url('Admin/addUser')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
                                 <div class="form-group mb-2">
                                     <label for="iduser">ID User</label>
-                                    <input type="text" class="form-control" id="iduser" placeholder="Masukkan id user">
+                                    <input type="text" class="form-control" id="iduser" placeholder="Masukkan id user" name="iduser">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="namauser">Nama User</label>
-                                    <input type="text" class="form-control" id="namauser" placeholder="Masukkan nama user">
+                                    <input type="text" class="form-control" id="namauser" placeholder="Masukkan nama user" name="namauser">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="alamatuser">Alamat User</label>
-                                    <input type="text" class="form-control" id="alamatuser" placeholder="Masukkan alamat user">
+                                    <input type="text" class="form-control" id="alamatuser" placeholder="Masukkan alamat user" name="alamatuser">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="alamatuser">Email User</label>
+                                    <input type="email" class="form-control" id="emailuser" placeholder="Masukkan email user" name="emailuser">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="nohpuser">Nomor HP User</label>
+                                    <input type="text" class="form-control" id="nohpuser" placeholder="Masukkan nomor hp user" name="nohpuser">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" placeholder="Masukkan username" name="username">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="passworduser">Password User</label>
-                                    <input type="password" class="form-control" id="passworduser" placeholder="Masukkan password user">
+                                    <input type="password" class="form-control" id="passworduser" placeholder="Masukkan password user" name="passworduser">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="fotoprofile">Foto Profil User</label>
-                                    <input type="file" class="form-control-file" id="fotoprofile">
+                                    <input type="file" class="form-control-file" id="fotoprofile" name="fotoprofile">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="fotoktp">Foto KTP User</label>
-                                    <input type="file" class="form-control-file" id="fotoktp">
+                                    <input type="file" class="form-control-file" id="fotoktp" name="fotoktp">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Simpan Data</button>
                             </form>

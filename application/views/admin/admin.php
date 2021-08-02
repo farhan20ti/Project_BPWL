@@ -9,6 +9,7 @@
     <meta name="author" content="" />
     <title>Dashboard - Admin Berasku</title>
     <link href="<?= base_url() ?>assets/css/stylesAdmin.css" rel=" stylesheet" />
+    <link href="<?= base_url() ?>assets/css/myStyle.css" rel=" stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
@@ -30,11 +31,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= site_url('admin/logout') ?>">Logout</a></li>
                 </ul>
             </li>
@@ -63,7 +59,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Admin Berasku
+                    Admin <?php echo $this->session->userdata("nama"); ?>
                 </div>
             </nav>
         </div>
@@ -74,44 +70,6 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">Primary Card</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-warning text-white mb-4">
-                                <div class="card-body">Warning Card</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-success text-white mb-4">
-                                <div class="card-body">Success Card</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">Danger Card</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card mb-4">
@@ -140,7 +98,7 @@
                                 <button class="btn btn-success">Tambah data</button>
                             </a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body table-overflow">
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr class="text-center">
@@ -149,29 +107,45 @@
                                         <th>Asal Beras</th>
                                         <th>Type Beras</th>
                                         <th>Harga Beras</th>
+                                        <th>Stok Beras (Kg)</th>
                                         <th>Gambar Beras</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-center">
-                                        <td>BS-001</td>
-                                        <td class="text-start">Topi Koki</td>
-                                        <td>Sumatra Barat</td>
-                                        <td>Biasa</td>
-                                        <td>Rp. 115.000</td>
-                                        <td>
-                                            <img src="https://via.placeholder.com/50" alt="beras">
-                                        </td>
-                                        <td>
-                                            <a href="<?= site_url('admin/editBeras') ?>">
-                                                <button class="btn btn-warning">Edit</button>
-                                            </a>
-                                            <a href="">
-                                                <button class="btn btn-danger">Hapus</button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php if (empty($showBeras)) { ?>
+                                        <tr class="text-center">
+                                            <td class="text-center pt-4 pb-4" colspan="8">Data Tidak Ditemukan</td>
+                                        </tr>
+                                        <?php } else {
+                                        foreach ($showBeras as $key => $value) { ?>
+                                            <tr class="text-center">
+                                                <td width="10%"><?php echo $value['id_beras'] ?></td>
+                                                <td class="text-start" width="8%"><?php echo $value['nama_beras'] ?></td>
+                                                <td width="10%"><?php echo $value['asal_beras'] ?></td>
+                                                <td width="10%"><?php echo $value['jenis_beras'] ?></td>
+                                                <td width="12%">Rp. <?php echo $value['harga_beras'] ?></td>
+                                                <td width="10%"><?php echo $value['stok_beras'] ?>Kg</td>
+                                                <td width="20%">
+                                                    <img src="<?php echo base_url() . "assets/uploaded/beras/" . $value['gambar_beras'] ?>" alt="beras" class="w-100">
+                                                </td>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <a href="<?= site_url('admin/editBeras') ?>/<?= $value['id_beras'] ?>">
+                                                                <button class="btn btn-warning">Edit</button>
+                                                            </a>        
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <a href="<?= site_url('admin/deleteBeras') ?>/<?= $value['id_beras'] ?>">
+                                                                <button class="btn btn-danger">Hapus</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    <?php }
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -184,40 +158,63 @@
                                 <button class="btn btn-success">Tambah data</button>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <table class="table">
+                        <div class="card-body table-overflow pe-5">
+                            <table class="table pe-5">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th>ID User</th>
-                                        <th class="text-start">Nama User</th>
+                                        <th class="text-start" width="20%">Nama User</th>
                                         <th>Alamat User</th>
                                         <th>Password User</th>
-                                        <th>Foto Profil User</th>
-                                        <th>Foto KTP User</th>
-                                        <th>Aksi</th>
+                                        <th width="20%">Foto Profil User</th>
+                                        <th width="20%">Foto KTP User</th>
+                                        <th width="30%">Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="text-center">
-                                        <td>USR-001</td>
-                                        <td class="text-start">Muhammad Ridwan</td>
-                                        <td>Jalan Paus</td>
-                                        <td>**********</td>
-                                        <td>
-                                            <img src="https://via.placeholder.com/50" alt="beras">
-                                        </td>
-                                        <td>
-                                            <img src="https://via.placeholder.com/50" alt="beras">
-                                        </td>
-                                        <td>
-                                            <a href="<?= site_url('admin/editUser') ?>">
-                                                <button class="btn btn-warning">Edit</button>
-                                            </a>
-                                            <a href="">
-                                                <button class="btn btn-danger">Hapus</button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                <tbody class="pe-5">
+                                    <?php if (empty($showUser)) { ?>
+                                        <tr class="text-center">
+                                            <td class="text-center pt-4 pb-4" colspan="7">Data Tidak Ditemukan</td>
+                                        </tr>
+                                        <?php } else {
+                                        foreach ($showUser as $key => $value) { ?>
+                                            <tr class="text-center">
+                                                <td width="10%"><?php echo $value['id_user'] ?></td>
+                                                <td class="text-start" width="10%"><?php echo $value['nama_user'] ?></td>
+                                                <td width="15%"><?php echo $value['alamat_user'] ?></td>
+                                                <td width="10%"><?php
+                                                                $con = strlen($value['pass_user']);
+                                                                for ($i = 1; $i <= $con; $i++) {
+                                                                    echo "*";
+                                                                }
+                                                                ?></< /td>
+                                                <td width="15%">
+                                                    <?php if ($value['profile_user'] == null) { ?>
+                                                        <img src="https://via.placeholder.com/50" alt="user">
+                                                    <?php } else { ?>
+                                                        <img src="<?php echo base_url() . "assets/uploaded/user/" . $value['profile_user'] ?>" alt="user" class="w-50 rounded">
+                                                    <?php } ?>
+                                                </td>
+                                                <td width="15%">
+                                                    <img src="<?php echo base_url() . "assets/uploaded/user/" . $value['ktp_user'] ?>" alt="user" class="w-50 rounded" alt="ktp user">
+                                                </td>
+                                                <td>
+                                                    <div class="row justify-content-between">
+                                                        <div class="col-5">
+                                                            <a href="<?= site_url('admin/editUser') ?>/<?= $value['id_user'] ?>">
+                                                                <button class="btn btn-warning">Edit</button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <a href="<?= site_url('admin/deleteUser') ?>/<?= $value['id_user'] ?>">
+                                                                <button class="btn btn-danger">Hapus</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    <?php }
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -225,41 +222,115 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            Data Appointment
+                            Data Pembelian
                             <a href="<?= site_url('admin/tambahAppointment') ?>">
                                 <button class="btn btn-success">Tambah data</button>
                             </a>
                         </div>
-                        <div class="card-body">
-                            <table class="table">
+                        <div class="card-body table-overflow">
+                            <table class="table table-beli">
                                 <thead class="thead-light">
                                     <tr class="text-center">
-                                        <th>ID Transaksi</th>
-                                        <th>ID Beras</th>
-                                        <th>ID User</th>
-                                        <th>Tanggal Beli</th>
-                                        <th>Jumlah Beli</th>
-                                        <th>Total Harga</th>
-                                        <th>Aksi</th>
+                                        <th width="8%">ID Transaksi</th>
+                                        <th width="8%">ID Beras</th>
+                                        <th width="8%">ID User</th>
+                                        <th width="8%">Tanggal Beli</th>
+                                        <th width="8%">Jumlah Beli</th>
+                                        <th width="8%">Total Harga</th>
+                                        <th width="13%">Metode Pembayaran</th>
+                                        <th width="13%">Jenis Pembayaran</th>
+                                        <th width="5%">Setor 1</th>
+                                        <th width="5%">Setor 2</th>
+                                        <th width="5%">Setor 3</th>
+                                        <th width="15%">Metode Pengantaran</th>
+                                        <th width="8%">Status</th>
+                                        <th width="20%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-center">
-                                        <td>TR-001</td>
-                                        <td>BS-001</td>
-                                        <td>USR-001</td>
-                                        <td>14 July 2021</td>
-                                        <td>20Kg</td>
-                                        <td>Rp. 230.000</td>
-                                        <td>
-                                            <a href="<?= site_url('admin/editAppointment') ?>">
-                                                <button class="btn btn-warning">Edit</button>
-                                            </a>
-                                            <a href="">
-                                                <button class="btn btn-danger">Hapus</button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php if (empty($showPembelian)) { ?>
+                                        <tr class="text-center">
+                                            <td class="text-center pt-4 pb-4" colspan="7">Data Tidak Ditemukan</td>
+                                        </tr>
+                                        <?php } else {
+                                                foreach ($showPembelian as $key => $value) { ?>
+                                            <tr class="text-center">
+                                                <td><?php echo $value['id_transaksi'] ?></td>
+                                                <td><?php echo $value['id_beras'] ?></td>
+                                                <td><?php echo $value['id_user'] ?></td>
+                                                <td><?php
+                                                    $date = new dateTime($value['tgl_beli']);
+                                                    echo $date->format('d-m-Y');
+                                                    ?></td>
+                                                <td><?php echo $value['jml_beli'] ?>Kg</td>
+                                                <td>Rp. <?php echo $value['total_harga'] ?></td>
+                                                <td><?php echo $value['metode_pembayaran'] ?></td>
+                                                <td><?php echo $value['jenis_pembayaran'] ?></td>
+                                                <?php if ($value['setor1'] == "sudah") { ?>
+                                                    <td>
+                                                        <button class="btn btn-success">Sudah</button>
+                                                    </td>
+                                               <?php } elseif($value['setor1'] == "belum") { ?>
+                                                    <td>
+                                                        <button class="btn btn-danger">Belum</button>
+                                                    </td>
+                                               <?php } elseif($value['setor1'] == null) { ?>
+                                                    <td>
+                                                        -
+                                                    </td>
+                                               <?php } ?>
+                                               <?php if ($value['setor2'] == "sudah") { ?>
+                                                    <td>
+                                                        <button class="btn btn-success">Sudah</button>
+                                                    </td>
+                                               <?php } elseif($value['setor2'] == "belum") { ?>
+                                                    <td>
+                                                        <button class="btn btn-danger">Belum</button>
+                                                    </td>
+                                               <?php } elseif($value['setor2'] == null) { ?>
+                                                    <td>
+                                                        -
+                                                    </td>
+                                               <?php } ?>
+                                               <?php if ($value['setor3'] == "sudah") { ?>
+                                                    <td>
+                                                        <button class="btn btn-success">Sudah</button>
+                                                    </td>
+                                               <?php } elseif($value['setor3'] == "belum") { ?>
+                                                    <td>
+                                                        <button class="btn btn-danger">Belum</button>
+                                                    </td>
+                                               <?php } elseif($value['setor3'] == null) { ?>
+                                                    <td>
+                                                        -
+                                                    </td>
+                                               <?php } ?>
+                                                <td><?php echo $value['metode_penerimaan'] ?></td>
+                                                <?php if ($value['status'] == "selesai") { ?>
+                                                    <td>
+                                                        <p class="text-success">Selesai</p>
+                                                    </td>
+                                               <?php } else { ?>
+                                                    <td>
+                                                        <p class="text-danger">Pending</p>
+                                                    </td>
+                                               <?php } ?>
+                                                 <td>
+                                                    <div class="row justify-content-between">
+                                                        <div class="col-5">
+                                                            <a href="<?= site_url('admin/editAppointment') ?>/<?= $value['id_transaksi'] ?>">
+                                                            <button class="btn btn-warning">Edit</button>
+                                                        </a>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <a href="<?= site_url('admin/deleteAppointment') ?>/<?= $value['id_transaksi'] ?>">
+                                                                <button class="btn btn-danger">Hapus</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    <?php }} ?>
                                 </tbody>
                             </table>
                         </div>
@@ -272,30 +343,44 @@
                                 <button class="btn btn-success">Tambah data</button>
                             </a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body table-overflow">
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th>ID Kurir</th>
                                         <th>Nama Kurir</th>
                                         <th>No. Handphone</th>
-                                        <th>Aksi</th>
+                                        <th width="20%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-center">
-                                        <td>KR-001</td>
-                                        <td>Suyanto</td>
-                                        <td>0821 8662 9880</td>
-                                        <td>
-                                            <a href="<?= site_url('admin/editKurir') ?>">
-                                                <button class="btn btn-warning">Edit</button>
-                                            </a>
-                                            <a href="">
-                                                <button class="btn btn-danger">Hapus</button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php if (empty($showKurir)) { ?>
+                                        <tr class="text-center">
+                                            <td class="text-center pt-4 pb-4" colspan="4">Data Tidak Ditemukan</td>
+                                        </tr>
+                                        <?php } else {
+                                        foreach ($showKurir as $key => $value) { ?>
+                                            <tr class="text-center">
+                                                <td><?php echo $value['id_kurir'] ?></td>
+                                                <td><?php echo $value['nama_kurir'] ?></td>
+                                                <td><?php echo $value['no_hp'] ?></td>
+                                                <td>
+                                                    <div class="row justify-content-around">
+                                                        <div class="col-5">
+                                                            <a href="<?= site_url('admin/editKurir') ?>/<?= $value['id_kurir'] ?>">
+                                                                <button class="btn btn-warning">Edit</button>
+                                                            </a>        
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <a href="<?= site_url('admin/deleteKurir') ?>/<?= $value['id_kurir'] ?>">
+                                                                <button class="btn btn-danger">Hapus</button>
+                                                            </a>  
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    <?php }
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -303,37 +388,56 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            Tabel Dikirim
+                            Data Pengiriman
                             <a href="<?= site_url('admin/tambahDikirim') ?>">
                                 <button class="btn btn-success">Tambah data</button>
                             </a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body table-overflow">
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr class="text-center">
+                                        <th>ID Pengiriman</th>
                                         <th>ID Beras</th>
                                         <th>ID User</th>
                                         <th>ID Kurir</th>
+                                        <th>Status</th>
                                         <th>Tanggal Beli</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-center">
-                                        <td>BS-001</td>
-                                        <td>USR-001</td>
-                                        <td>KR-001</td>
-                                        <td>14 July 2021</td>
-                                        <td>
-                                            <a href="<?= site_url('admin/editDikirim') ?>">
-                                                <button class="btn btn-warning">Edit</button>
-                                            </a>
-                                            <a href="">
-                                                <button class="btn btn-danger">Hapus</button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php if (empty($showPengiriman)) { ?>
+                                        <tr class="text-center">
+                                            <td class="text-center pt-4 pb-4" colspan="6">Data Tidak Ditemukan</td>
+                                        </tr>
+                                        <?php } else {
+                                                foreach ($showPengiriman as $key => $value) { ?>
+                                            <tr class="text-center">
+                                                <td><?php echo $value['id_pengiriman'] ?></td>
+                                                <td><?php echo $value['id_beras'] ?></td>
+                                                <td><?php echo $value['id_user'] ?></td>
+                                                <td><?php echo $value['id_kurir'] ?></td>
+                                                <?php if ($value['status'] == "dikirim") { ?>
+                                                   <td><p class="text-info">Sedang Dikirim</p></td>
+                                                <?php } else {?>
+                                                    <td><p class="text-success">Sudah Dikirim</p> </td>
+                                                <?php } ?>
+                                                <td><?php
+                                                    $date = new dateTime($value['tgl_kirim']);
+                                                    echo $date->format('d-m-Y');
+                                                    ?></td>
+                                                <td>
+                                                    <a href="<?= site_url('admin/editDikirim') ?>/<?= $value['id_pengiriman'] ?>">
+                                                        <button class="btn btn-warning">Edit</button>
+                                                    </a>
+                                                    <a href="<?= site_url('admin/deleteDikirim') ?>/<?= $value['id_pengiriman'] ?>">
+                                                        <button class="btn btn-danger">Hapus</button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                    <?php }
+                                            } ?>
                                 </tbody>
                             </table>
                         </div>

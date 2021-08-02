@@ -64,7 +64,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Admin Berasku
+                         <?php echo $this->session->userdata("nama"); ?>
                     </div>
                 </nav>
             </div>

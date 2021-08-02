@@ -30,11 +30,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= site_url('admin/logout') ?>">Logout</a></li>
                 </ul>
             </li>
@@ -63,7 +58,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Admin Berasku
+                    Admin  <?php echo $this->session->userdata("nama"); ?>
                 </div>
             </nav>
         </div>
@@ -98,25 +93,54 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Edit Data Dikirim</h1>
+                    <h1 class="mt-4">Edit Data Pengiriman</h1>
                     <div class="row">
                         <div class="col-4">
-                            <form>
+                            <form action="<?php echo site_url('Admin/updateDikirim')?>" method="POST">
+                                <div class="form-group mb-2">
+                                    <label for="idpengiriman">ID Pengiriman</label>
+                                    <input type="text" class="form-control" id="idpengiriman" name="idpengiriman" placeholder="Masukkan id pengiriman" value="<?php echo $id_tgl[0]['id_pengiriman']?>" readonly>
+                                </div>
                                 <div class="form-group mb-2">
                                     <label for="idberas">ID Beras</label>
-                                    <input type="text" class="form-control" id="idberas" disabled>
+                                    <select class="form-select" id="idberas" name="idberas">
+                                         <option selected disabled>Pilih ID Beras</option>
+                                      <?php foreach ($berasId as $key => $value) { ?>
+                                          <option value="<?php echo $value['id_beras'] ?>"><?php echo $value['id_beras'] ?></option>
+                                      <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="iduser">ID User</label>
-                                    <input type="text" class="form-control" id="iduser" disabled>
+                                    <select class="form-select" id="iduser" name="iduser">
+                                         <option selected disabled>Pilih ID User</option>
+                                       <?php foreach ($userId as $key => $value) { ?>
+                                          <option value="<?php echo $value['id_user'] ?>"><?php echo $value['id_user'] ?></option>
+                                      <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="idkurir">ID Kurir</label>
-                                    <input type="text" class="form-control" id="idkurir" disabled>
+                                    <select class="form-select" id="idkurir" name="idkurir">
+                                        <option selected disabled>Pilih ID Kurir</option>
+                                       <?php foreach ($kurirId as $key => $value) { ?>
+                                          <option value="<?php echo $value['id_kurir'] ?>"><?php echo $value['id_kurir'] ?></option>
+                                      <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="tglbeli">Tanggal Beli</label>
-                                    <input type="date" class="form-control" id="tglbeli">
+                                    <input type="date" class="form-control" id="tglbeli" name="tglbeli" value="<?php echo $id_tgl[0]['tgl_kirim']?>">
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend w-50">
+                                        <label class="input-group-text" for="status">Status</label>
+                                    </div>
+                                    <select class="custom-select w-50" id="status" name="status">
+                                        <option selected>Pilih...</option>
+                                        <option value="dikirim">Dikirim</option>
+                                        <option value="terkirim">Terkirim</option>
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Simpan Perubahan</button>
                             </form>

@@ -5,40 +5,26 @@
             <p>Masukkan username dan password!</p>
         </div>
         <div class="row px-4 mx-0">
+            <div class="row mx-0 mb-3">
+                <div id="wrong"></div>
+            </div>
             <div class="row mx-0 mb-4">
-                <input type="text" class="form-control" placeholder="username">
+                <input type="text" class="form-control" placeholder="username" id="username">
             </div>
-            <div class="row mx-0 mb-3 ">
-                <input type="password" class="form-control" placeholder="password">
-            </div>
-        </div>
-        <div class="row mx-0 px-4 mb-4">
-            <div class="col-6">
-                <input class="form-check-input h-75" type="checkbox" value="" id="rememberMe">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Remember me
-                </label>
-            </div>
-            <div class="col-6 text-end">
-                <a href="">Forget password?</a>
+            <div class="row mx-0 mb-3">
+                <input type="password" class="form-control" placeholder="password" id="password">
             </div>
         </div>
-        <div class="row mx-0 px-4 mb-4 mt-5">
-            <div id="btn-login" class="d-flex justify-content-center">
-                <a href="#beranda">
-                    <button class="btn mx-auto login-btn">Login</button>
-                </a>
+        <div class="row mx-0 px-4 mb-4 mt-4">
+            <div class="d-flex justify-content-center">
+                <button class="btn mx-auto login-btn" id="btn-login">
+                    <a href="#beranda" class="text-dark">
+                        Login
+                    </a>
+                </button>
             </div>
             <div id="btn-register" class=" d-flex justify-content-center">
                 <a href="#register" class="text-center mt-3">Register</a>
-            </div>
-            <div class="text-center mt-3">
-                <button class="btn px-0">
-                    <i class="fab fa-facebook-f px-4 facebook py-2"></i>
-                </button>
-                <button class="btn px-0">
-                    <i class="fab fa-google px-4 google py-2"></i>
-                </button>
             </div>
         </div>
     </div>

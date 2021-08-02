@@ -30,11 +30,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= site_url('admin/logout') ?>">Logout</a></li>
                 </ul>
             </li>
@@ -63,7 +58,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Admin Berasku
+                    Admin  <?php echo $this->session->userdata("nama"); ?>
                 </div>
             </nav>
         </div>
@@ -101,18 +96,18 @@
                     <h1 class="mt-4">Tambah Data Kurir</h1>
                     <div class="row">
                         <div class="col-4">
-                            <form>
+                            <form action="<?php echo site_url('Admin/addKurir')?>" method="POST">
                                 <div class="form-group mb-2">
                                     <label for="idkurir">ID Kurir</label>
-                                    <input type="text" class="form-control" id="idkurir" placeholder="Masukkan id kurir">
+                                    <input type="text" class="form-control" id="idkurir" placeholder="Masukkan id kurir" name="idkurir">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="namakurir">Nama Kurir</label>
-                                    <input type="text" class="form-control" id="namakurir" placeholder="Masukkan nama kurir">
+                                    <input type="text" class="form-control" id="namakurir" placeholder="Masukkan nama kurir" name="namakurir">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="nohp">No Handphone</label>
-                                    <input type="text" class="form-control" id="nohp" placeholder="Masukkan no handphone">
+                                    <input type="text" class="form-control" id="nohp" placeholder="Masukkan no handphone" name="nohp">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Simpan Data</button>
                             </form>

@@ -6,5 +6,5 @@ else
   console.log(`Workbox gagal dimuat`);
 
 workbox.precaching.precacheAndRoute([
-    { url: '/aplication', revision: '1' }
+    { url: '/application', revision: '1' }
 ]);

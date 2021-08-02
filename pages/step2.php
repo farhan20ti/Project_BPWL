@@ -33,7 +33,7 @@
             <div id="pilihAntar" class="mt-4">
                 <p style="font-weight: 500;" class="mb-1">Masukkan alamat rumah</p>
                 <p>Biaya antar: Rp. 5.000</p>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" id="alamatinp">
             </div>
         </div>
     </div>

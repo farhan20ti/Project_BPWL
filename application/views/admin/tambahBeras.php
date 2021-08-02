@@ -30,11 +30,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= site_url('admin/logout') ?>">Logout</a></li>
                 </ul>
             </li>
@@ -63,7 +58,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Admin Berasku
+                    Admin  <?php echo $this->session->userdata("nama"); ?>
                 </div>
             </nav>
         </div>
@@ -101,30 +96,34 @@
                     <h1 class="mt-4">Tambah Data Beras</h1>
                     <div class="row">
                         <div class="col-4">
-                            <form>
+                            <form action="<?php echo site_url('Admin/addBeras')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
                                 <div class="form-group mb-2">
                                     <label for="idberas">ID Beras</label>
-                                    <input type="text" class="form-control" id="idberas" placeholder="Masukkan id beras">
+                                    <input type="text" class="form-control" id="idberas" name="idberas" placeholder="Masukkan id beras">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="namaberas">Nama Beras</label>
-                                    <input type="text" class="form-control" id="namaberas" placeholder="Masukkan nama beras">
+                                    <input type="text" class="form-control" id="namaberas" name="namaberas" placeholder="Masukkan nama beras">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="asalberas">Asal Beras</label>
-                                    <input type="text" class="form-control" id="asalberas" placeholder="Masukkan asal beras">
+                                    <input type="text" class="form-control" id="asalberas" name="asalberas" placeholder="Masukkan asal beras">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="typeberas">Type Beras</label>
-                                    <input type="text" class="form-control" id="typeberas" placeholder="Masukkan type beras">
+                                    <input type="text" class="form-control" id="typeberas" name="typeberas" placeholder="Masukkan type beras">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="hargaberas">Harga Beras</label>
-                                    <input type="text" class="form-control" id="hargaberas" placeholder="Masukkan harga beras">
+                                    <input type="text" class="form-control" id="hargaberas" name="hargaberas" placeholder="Masukkan harga beras">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="stokberas">Stok Beras (Kg)</label>
+                                    <input type="text" class="form-control" id="stokberas" name="stokberas" placeholder="Masukkan stok beras">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="gambarberas">Gambar Beras</label>
-                                    <input type="file" class="form-control-file" id="gambarberas">
+                                    <input type="file" class="form-control-file" id="gambarberas" name="gambarberas">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Simpan Data</button>
                             </form>

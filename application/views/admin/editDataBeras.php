@@ -30,11 +30,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= site_url('admin/logout') ?>">Logout</a></li>
                 </ul>
             </li>
@@ -63,7 +58,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Admin Berasku
+                    Admin  <?php echo $this->session->userdata("nama"); ?>
                 </div>
             </nav>
         </div>
@@ -101,30 +96,34 @@
                     <h1 class="mt-4">Edit Data Beras</h1>
                     <div class="row">
                         <div class="col-4">
-                            <form>
+                            <form action="<?php echo site_url('Admin/updateBeras')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
                                 <div class="form-group mb-2">
                                     <label for="idberas">ID Beras</label>
-                                    <input type="text" class="form-control" id="idberas" disabled>
+                                    <input type="text" class="form-control" id="idberas" value="<?php echo $edit[0]['id_beras'] ?>" name="idberas" readonly>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="namaberas">Nama Beras</label>
-                                    <input type="text" class="form-control" id="namaberas">
+                                    <input type="text" class="form-control" id="namaberas" name="namaberas" value="<?php echo $edit[0]['nama_beras'] ?>">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="asalberas">Asal Beras</label>
-                                    <input type="text" class="form-control" id="asalberas">
+                                    <input type="text" class="form-control" id="asalberas" name="asalberas" value="<?php echo $edit[0]['asal_beras'] ?>">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="typeberas">Type Beras</label>
-                                    <input type="text" class="form-control" id="typeberas">
+                                    <input type="text" class="form-control" id="typeberas" name="typeberas" value="<?php echo $edit[0]['jenis_beras'] ?>">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="hargaberas">Harga Beras</label>
-                                    <input type="text" class="form-control" id="hargaberas">
+                                    <input type="text" class="form-control" id="hargaberas" name="hargaberas" value="<?php echo $edit[0]['harga_beras'] ?>">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="stokberas">Stok Beras</label>
+                                    <input type="text" class="form-control" id="stokberas" name="stokberas" value="<?php echo $edit[0]['stok_beras'] ?>">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="gambarberas">Gambar Beras</label>
-                                    <input type="file" class="form-control-file" id="gambarberas">
+                                    <input type="file" class="form-control-file" id="gambarberas" name="gambarberas">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Simpan Perubahan</button>
                             </form>
